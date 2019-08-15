@@ -15,7 +15,7 @@ jobs:
     - name: Secret example
       env:
         FOO: ${{ secrets.FOO }}
-      run: "echo The FOO secret is '${FOO}'!"
+      run: "echo The FOO secret is: ${FOO}!"
     - name: Publish to Docker Hub
       env:
         DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
