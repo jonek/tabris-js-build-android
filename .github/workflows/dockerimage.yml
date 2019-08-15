@@ -14,12 +14,12 @@ jobs:
       run: "echo TODO: docker build . --file Dockerfile --tag jojojonek/tabris-js-build-android:$(date +%s)"
     - name: Secret example
       env:
-        FOO: {{ secrets.FOO }}
+        FOO: ${{ secrets.FOO }}
       run: "echo The FOO secret is '${FOO}'!"
     - name: Publish to Docker Hub
       env:
-        DOCKERHUB_USERNAME: {{ secrets.DOCKERHUB_USERNAME }}
-        DOCKERHUB_PASSWORD: {{ secrets.DOCKERHUB_PASSWORD }}
+        DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+        DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
       run: docker login --username ${DOCKERHUB_USERNAME} --password ${DOCKERHUB_PASSWORD}
     - name: Logout from Docker Hub
       run: docker logout
