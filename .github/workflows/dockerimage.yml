@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on: [push]
+
+jobs:
+
+  build:
+ 
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      run: echo "TODO: docker build . --file Dockerfile --tag jojojonek/tabris-js-build-android:$(date +%s)"
+    - name: Publish to Docker Hub
+      uses: actions/docker/login@master
+    - name: Logout from Docker Hub
+      run: docker logout
