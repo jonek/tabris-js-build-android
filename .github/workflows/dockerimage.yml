@@ -20,6 +20,6 @@ jobs:
       env:
         DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-      run: docker login --username ${DOCKERHUB_USERNAME} --password ${DOCKERHUB_PASSWORD}
+      run: echo -n ${DOCKERHUB_PASSWORD} | docker login --username ${DOCKERHUB_USERNAME} --password-stdin
     - name: Logout from Docker Hub
       run: docker logout
